@@ -10,11 +10,13 @@ export default function ImgGenerator() {
     const [imgSrc, setImgSrc] = useState('');
     const [imgStyle, setImgStyle] = useState({ display: 'none' });
     const [buttonDisabled, setButtonDisabled] = useState(false);
+    const [ButtonWords, setButtonWords] = useState('Generate')
 
     const handleClick = () => {
         // Set the image source and show the image
         setImgSrc(`https://txt2img.tgcos.workers.dev/?p=${prompt}`);
         setImgStyle({ display: 'block', width: '100%' });
+        setButtonWords('Generating');
         // Disable the button
         setButtonDisabled(true);
     };
@@ -23,6 +25,7 @@ export default function ImgGenerator() {
     const handleImageLoad = () => {
         // Enable the button
         setButtonDisabled(false);
+        setButtonWords('Generate');
     };
 
     return (
@@ -47,7 +50,7 @@ export default function ImgGenerator() {
                     disabled={buttonDisabled}
                     id="generateImage"
                 >
-                    Generate
+                    {ButtonWords}
                 </Button>
             </Box>
             <Container maxWidth="sm" sx={{ py: 2 }}>
