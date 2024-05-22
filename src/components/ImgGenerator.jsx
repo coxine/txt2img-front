@@ -38,7 +38,7 @@ export default function ImgGenerator() {
         >
             <Box sx={{ display: 'flex', gap: 2 }}>
                 <TextField
-                    label="Prompt"
+                    label="Prompt 最好用英文，中文可能生成无关图片"
                     variant="outlined"
                     value={prompt}
                     onChange={(e) => setPrompt(e.target.value)}
